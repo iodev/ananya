@@ -217,6 +217,60 @@ SPEECH_API_KEY=your-api-key
 ANALYTICS_ENABLED=false
 ```
 
+## Caelum Integration Guidelines
+
+### Priority: Cost Optimization First
+**CRITICAL**: Always attempt Caelum local processing before expensive API calls
+
+### Integration Points
+
+#### 1. Command Intelligence
+```typescript
+// Use Caelum Ollama Pool for command suggestions
+await mcp__caelum-ollama-pool__route_llm_request({
+  task_description: "Analyze command and suggest improvements",
+  prompt: userCommand,
+  context: {
+    type: "code",
+    complexity: "low",
+    cost_sensitivity: "critical",
+    privacy_sensitivity: "internal"
+  }
+});
+```
+
+#### 2. Error Analysis
+```typescript
+// Use Caelum for intelligent error resolution
+await mcp__caelum-ollama-pool__analyze_code_with_pool({
+  code: terminalOutput,
+  analysis_type: "security",
+  language: "bash"
+});
+```
+
+#### 3. Business Intelligence
+```typescript
+// Track usage patterns for monetization
+await mcp__caelum-business-intelligence__analyze_business_intelligence({
+  data: usageMetrics,
+  analysis_focus: ["trends", "opportunities"],
+  industry: "developer-tools"
+});
+```
+
+### Cost-Conscious Architecture
+1. **Local First**: Always try Caelum cluster processing
+2. **Cloud Fallback**: Only use expensive APIs when Caelum unavailable
+3. **Batch Processing**: Group requests to maximize Caelum efficiency
+4. **Cache Results**: Store Caelum responses locally
+
+### Monetization Integration
+- Track Caelum usage for cost calculations
+- Implement usage-based billing tiers
+- Monitor cost savings for marketing
+- Report ROI to users
+
 ## Support Resources
 
 - **React Native Docs**: https://reactnative.dev/docs/getting-started
@@ -224,10 +278,13 @@ ANALYTICS_ENABLED=false
 - **SSH2 Library**: https://github.com/mscdex/ssh2
 - **App Store Guidelines**: https://developer.apple.com/app-store/guidelines/
 - **Claude Code CLI**: https://claude.ai/code
+- **Caelum Documentation**: /mnt/d/swdatasci/caelum
 
 ## Contact & Collaboration
 
 For questions about this project's architecture or implementation details, reference this document first. For Claude Code CLI specific integrations, ensure compatibility with the latest CLI version.
+
+For Caelum integration questions, refer to the Caelum MCP servers at `/mnt/d/swdatasci/caelum` and prioritize cost optimization through local processing.
 
 ---
 
